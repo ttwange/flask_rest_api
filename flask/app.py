@@ -7,6 +7,9 @@ def index():
   return 'Flask world'
 
 
+@app.route('/<name>')
+
+
 
 if __name__ == '__main__':
   app.run()
