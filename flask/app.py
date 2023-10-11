@@ -50,5 +50,29 @@ books_list = [
 "author": "Ben Okri",
 "language": "English",
 "title": "The Famished Road"
+},
+{
+"id": 8,
+"author": "Sembene Ousmane",
+"language": "French",
+"title": "Xala"
+},
+{
+"id": 9,
+"author": "Mariama Bâ",
+"language": "French",
+"title": "So Long a Letter"
+},
+{
+"id": 10,
+"author": "Chinua Achebe",
+"language": "English",
+"title": "Arrow of God"
+},
+{
+"id": 11,
+"author": "Nadine Gordimer",
+"language": "English",
+"title": "Burger's Daughter"
 }
 ]
