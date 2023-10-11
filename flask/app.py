@@ -26,5 +26,29 @@ books_list = [
 "author": "Ngũgĩ wa Thiong'o",
 "language": "English/Kikuyu",
 "title": "Petals of Blood"
+},
+{
+"id": 4,
+"author": "Nawal El Saadawi",
+"language": "Arabic",
+"title": "Woman at Point Zero"
+},
+{
+"id": 5,
+"author": "Chigozie Obioma",
+"language": "English",
+"title": "The Fishermen"
+},
+{
+"id": 6,
+"author": "Ayi Kwei Armah",
+"language": "English",
+"title": "The Beautyful Ones Are Not Yet Born"
+},
+{
+"id": 7,
+"author": "Ben Okri",
+"language": "English",
+"title": "The Famished Road"
 }
 ]
