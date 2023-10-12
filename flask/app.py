@@ -136,15 +136,15 @@ def books():
 
   if request.method == 'POST':
     new_author = request.form['author']
-    new_langauge = request.form['language']
+    new_lang = request.form['language']
     new_title=request.form['title']
     iD = books_list[-1]['id']+1
 
     new_obj = {
       'id': iD,
-      'author'; new_author,
-      'language': new_language,
+      'author': new_author,
+      'language': new_lang,
       'title':new_title
     }
     books_list.append(new_obj)
-    return jsonify(books_list)
+    return jsonify(books_list), 201
