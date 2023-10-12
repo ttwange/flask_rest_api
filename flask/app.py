@@ -139,3 +139,10 @@ def books():
     new_langauge = request.form['language']
     new_title=request.form['title']
     iD = books_list[-1]['id']+1
+
+    new_obj = {
+      'id': iD,
+      'author'; new_author,
+      'language': new_language,
+      'title':new_title
+    }
