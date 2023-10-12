@@ -146,3 +146,5 @@ def books():
       'language': new_language,
       'title':new_title
     }
+    books_list.append(new_obj)
+    return jsonify(books_list)
