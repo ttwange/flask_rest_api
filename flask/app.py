@@ -148,3 +148,6 @@ def books():
     }
     books_list.append(new_obj)
     return jsonify(books_list), 201
+  
+if __name__ == '__main__':
+  app.run(debug=True)
