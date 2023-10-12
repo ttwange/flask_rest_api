@@ -1,15 +1,15 @@
 from flask import Flask, request, jsonify
 
-app =Flask(__name__)
+app = Flask(__name__)
 
 books_list = [
-  {
-    "id":0,
-    "author": "Chinua Achebe",
-    "language": "English",
-    "title": "Things Fall Apart",
-  },
-  {
+{
+"id":0,
+"author": "Chinua Achebe",
+"language": "English",
+"title": "Things Fall Apart",
+},
+{
 "id": 1,
 "author": "Wole Soyinka",
 "language": "English",
@@ -74,5 +74,62 @@ books_list = [
 "author": "Nadine Gordimer",
 "language": "English",
 "title": "Burger's Daughter"
+},
+{
+"id": 12,
+"author": "Soyinka Ola Rotimi",
+"language": "English",
+"title": "The Gods Are Not To Blame"
+},
+{
+"id": 13,
+"author": "Leila Aboulela",
+"language": "English",
+"title": "Minaret"
+},
+{
+"id": 14,
+"author": "Mia Couto",
+"language": "Portuguese",
+"title": "Sleepwalking Land"
+},
+{
+"id": 15,
+"author": "Naguib Mahfouz",
+"language": "Arabic",
+"title": "Children of the Alley"
+},
+{
+"id": 16,
+"author": "Buchi Emecheta",
+"language": "English",
+"title": "The Joys of Motherhood"
+},
+{
+"id": 17,
+"author": "Dinaw Mengestu",
+"language": "English",
+"title": "The Beautiful Things That Heaven Bears"
+},
+{
+"id": 18,
+"author": "Aminata Sow Fall",
+"language": "French",
+"title": "The Beggars' Strike"
+},
+{
+"id": 19,
+"author": "Tayeb Salih",
+"language": "Arabic",
+"title": "Season of Migration to the North"
 }
+
 ]
+
+@app.route('/books',method=['GET','POST'])
+def books():
+  if request.method == 'GET':
+    if len(books_list) > 0:
+      return jsonify(books_list)
+    else:
+      'Nothing Found', 404
