@@ -133,3 +133,9 @@ def books():
       return jsonify(books_list)
     else:
       'Nothing Found', 404
+
+  if request.method == 'POST':
+    new_author = request.form['author']
+    new_langauge = request.form['language']
+    new_title=request.form['title']
+    iD = books_list[-1]['id']+1
