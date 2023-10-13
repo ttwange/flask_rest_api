@@ -158,6 +158,15 @@ def single_book(id):
   if request.method == 'GET':
     for book in books_list:
       if book['id'] ==id:
+        book['author'] = request.form['author']
+        book['language'] = request.form['language']
+        book['title'] = request.form['title']
+        updated_book = {
+          'id':id,
+          'author': book['author'],
+          'language': book['language'],
+          'title' : book ['title']
+          }
 
 if __name__ == '__main__':
   app.run()
