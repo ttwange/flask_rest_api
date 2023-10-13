@@ -167,6 +167,11 @@ def single_book(id):
           'language': book['language'],
           'title' : book ['title']
           }
+        return jsonify(updated_book)
+  if request.method == 'DELETE':
+    for index, book in enumerate(books_list):
+      if books['id'] == id:
+        
 
 if __name__ == '__main__':
   app.run()
