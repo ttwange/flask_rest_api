@@ -123,10 +123,9 @@ books_list = [
 "language": "Arabic",
 "title": "Season of Migration to the North"
 }
-
 ]
 
-@app.route('/books',method=['GET','POST'])
+@app.route('/books',methods=['GET','POST'])
 def books():
   if request.method == 'GET':
     if len(books_list) > 0:
@@ -149,5 +148,7 @@ def books():
     books_list.append(new_obj)
     return jsonify(books_list), 201
   
+@app.route('/book/<int:id>', methods=['GET','PUT', 'DELETE'])
+
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run()
