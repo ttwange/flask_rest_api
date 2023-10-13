@@ -171,7 +171,9 @@ def single_book(id):
   if request.method == 'DELETE':
     for index, book in enumerate(books_list):
       if books['id'] == id:
-        
+        books_list.pop(index)
+        return jsonify(books_list)
+
 
 if __name__ == '__main__':
   app.run()
