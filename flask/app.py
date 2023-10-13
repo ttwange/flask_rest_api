@@ -149,6 +149,15 @@ def books():
     return jsonify(books_list), 201
   
 @app.route('/book/<int:id>', methods=['GET','PUT', 'DELETE'])
+def single_book(id):
+  if request.method == 'GET':
+    for book in books_list:
+      if book['id'] ==id:
+        return jsonify(book)
+      pass
+  if request.method == 'GET':
+    for book in books_list:
+      if book['id'] ==id:
 
 if __name__ == '__main__':
   app.run()
