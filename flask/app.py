@@ -5,7 +5,7 @@ import sqlite3
 app = Flask(__name__)
 
 def db_connection():
-    conn = None:
+    conn = None
     try:
         conn = sqlite3.connect('books.sqlite')
     except sqlite3.error as e:
@@ -143,7 +143,7 @@ def books():
                 INSERT INTO BOOK (author,language,title) VALUES (?, ?, ?)
             """
         cursor = cursor.execute(sql, (new_author,new_lang,new_title))
-        cursor.commit()
+        conn.commit()
 
         return f" Book with id: {cursor.lastrowid} successful created"
 
