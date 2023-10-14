@@ -164,22 +164,23 @@ def single_book(id):
             return "Something is wrong", 404
 
     if request.method == 'PUT':
-        sql = """ 
-                    UPDATE book
-                    SET title=?,
-                        author=?,
-                        language=?
-                    WHERE id=? """
-        author = request.form['author']
-        language = request.form['language']
-        title = request.form['title']
+        sql = """ UPDATE book
+                SET title=?,
+                    author=?,
+                    language=?
+                WHERE id=? """
+        
+        author = request.form["author"]
+        language = request.form["language"]
+        title = request.form["title"]
+        
         updated_book = {
                     'id': id,
                     'author': author,
                     'language':language,
                     'title':title
                 }
-        conn.execute((sql, (author, language, title)))
+        conn.execute(sql, (author, language, title, id))
         conn.commit()
         return jsonify(updated_book)
     
