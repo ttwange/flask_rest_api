@@ -149,10 +149,12 @@ def books():
 
 @app.route('/book/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def single_book(id):
+    conn =  db_connection()
+    cursor = conn.cursor()
+
     if request.method == 'GET':
-        for book in books_list:
-            if book['id'] == id:
-                return jsonify(book)
+        cursor.execute("SELECT * FROM book where id=?",(id,))
+        rows = cursor.fetchall()
 
     if request.method == 'PUT':
         for book in books_list:
