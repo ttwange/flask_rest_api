@@ -164,18 +164,23 @@ def single_book(id):
             return "Something is wrong", 404
 
     if request.method == 'PUT':
-        for book in books_list:
-            if book['id'] == id:
-                book['author'] = request.form['author']
-                book['language'] = request.form['language']
-                book['title'] = request.form['title']
-                updated_book = {
-                    'id': id,
-                    'author': book['author'],
-                    'language': book['language'],
-                    'title': book['title']
-                }
-                return jsonify(updated_book)
+        sql = """ 
+                    UPDATE book
+                    SET title=?,
+                        author=?,
+                        language=?
+                    WHERE id=? """
+    author = request.form['author']
+    language = request.form['language']
+    title = request.form['title']
+    updated_book = {
+                'id': id,
+                'author': author,
+                'language':language,
+                'title':title
+            }
+    conn.execute((sql, (author, language, title)))
+    return jsonify(updated_book)
 
     if request.method == 'DELETE':
         for index, book in enumerate(books_list):
