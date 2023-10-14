@@ -170,23 +170,24 @@ def single_book(id):
                         author=?,
                         language=?
                     WHERE id=? """
-    author = request.form['author']
-    language = request.form['language']
-    title = request.form['title']
-    updated_book = {
-                'id': id,
-                'author': author,
-                'language':language,
-                'title':title
-            }
-    conn.execute((sql, (author, language, title)))
-    return jsonify(updated_book)
-
+        author = request.form['author']
+        language = request.form['language']
+        title = request.form['title']
+        updated_book = {
+                    'id': id,
+                    'author': author,
+                    'language':language,
+                    'title':title
+                }
+        conn.execute((sql, (author, language, title)))
+        conn.commit()
+        return jsonify(updated_book)
+    
     if request.method == 'DELETE':
-        for index, book in enumerate(books_list):
-            if book['id'] == id:
-                books_list.pop(index)
-                return jsonify(books_list)
+        sql = """DELETE from book WHERE id=?"""
+        conn.execute(sql,(id,))
+        conn.commit()
+        return f"The book with id : {id} has been deleted.",200
 
 if __name__ == '__main__':
     app.run()
