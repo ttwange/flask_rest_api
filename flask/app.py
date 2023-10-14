@@ -124,6 +124,7 @@ def books():
     conn =  db_connection()
     cursor = conn.cursor()
     if request.method == 'GET':
+        cursor = conn.execute("Select * from book")
         if len(books_list) > 0:
             return jsonify(books_list)
         else:
