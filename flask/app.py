@@ -13,6 +13,7 @@ def db_connection():
     return conn
                                
 
+"""
 books_list = [
 {
 "id":0,
@@ -115,28 +116,13 @@ books_list = [
 "author": "Buchi Emecheta",
 "language": "English",
 "title": "The Joys of Motherhood"
-},
-{
-"id": 17,
-"author": "Dinaw Mengestu",
-"language": "English",
-"title": "The Beautiful Things That Heaven Bears"
-},
-{
-"id": 18,
-"author": "Aminata Sow Fall",
-"language": "French",
-"title": "The Beggars' Strike"
-},
-{
-"id": 19,
-"author": "Tayeb Salih",
-"language": "Arabic",
-"title": "Season of Migration to the North"
 }
 ]
+"""
 @app.route('/books', methods=['GET', 'POST'])
 def books():
+    conn =  db_connection()
+    cursor = conn.cursor()
     if request.method == 'GET':
         if len(books_list) > 0:
             return jsonify(books_list)
