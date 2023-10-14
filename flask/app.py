@@ -125,6 +125,10 @@ def books():
     cursor = conn.cursor()
     if request.method == 'GET':
         cursor = conn.execute("Select * from book")
+        books = [
+            dict(id=row[0], author=row[1, language=row[2] , title=row[3]])
+            for row in cursor.fetchall()
+        ]
         if len(books_list) > 0:
             return jsonify(books_list)
         else:
