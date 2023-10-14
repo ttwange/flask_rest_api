@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import json
-import sqlite3
+import sqlite3  
 
 app = Flask(__name__)
 
@@ -139,7 +139,10 @@ def books():
         new_author = request.form['author']
         new_lang = request.form['language']
         new_title = request.form['title']
-        iD = books_list[-1]['id'] + 1
+        sql = """
+                INSERT INTO BOOK (author,language,title) VALUES (?, ?, ?)
+            """
+        cursor = cursor.execute(sql, (new_author,new_lang,new_title))
 
         new_obj = {
             'id': iD,
