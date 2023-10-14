@@ -156,6 +156,13 @@ def single_book(id):
         cursor.execute("SELECT * FROM book where id=?",(id,))
         rows = cursor.fetchall()
 
+        for r in rows:
+            book = r
+        if book is not None:
+            return jsonify(book),200
+        else:
+            return "Something is wrong", 404
+
     if request.method == 'PUT':
         for book in books_list:
             if book['id'] == id:
