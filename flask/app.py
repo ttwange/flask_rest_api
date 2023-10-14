@@ -143,15 +143,9 @@ def books():
                 INSERT INTO BOOK (author,language,title) VALUES (?, ?, ?)
             """
         cursor = cursor.execute(sql, (new_author,new_lang,new_title))
+        cursor.commit()
 
-        new_obj = {
-            'id': iD,
-            'author': new_author,
-            'language': new_lang,
-            'title': new_title
-        }
-        books_list.append(new_obj)
-        return jsonify(books_list), 201
+        return f" Book with id: {cursor.lastrowid} successful created"
 
 @app.route('/book/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def single_book(id):
